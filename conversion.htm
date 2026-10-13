@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<title>Conversion Practice</title>
+
+<style>
+.box{
+    width: 70%;
+    background-color: #b0e0e6;
+}
+
+.hidden{
+	visibility:hidden
+}
+
+.outline {
+	border: 1px solid black;
+}
+
+.pcenter {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tcenter {
+	text-align:center
+}
+</style>
+
+
+<script type="text/javascript"><!--
+
+function dec2bin(dec,length){
+	var out = "";
+
+	while(length--)
+		out += (dec >> length ) & 1;    
+		
+	return out;  
+}
+
+function hideAnswers() {
+	document.getElementById('DEC1').style.visibility = 'hidden';
+	document.getElementById('HEX1').style.visibility = 'hidden';
+	
+	document.getElementById('BIN2').style.visibility = 'hidden';
+	document.getElementById('HEX2').style.visibility = 'hidden';
+	
+	document.getElementById('BIN3').style.visibility = 'hidden';
+	document.getElementById('DEC3').style.visibility = 'hidden';
+	
+	document.getElementById('answers').style.display = 'inline';
+	document.getElementById('reload').style.display = 'none';
+}
+
+function buildTable() {
+	hideAnswers();
+
+	randnum = Math.floor((Math.random() * 256));
+	document.getElementById('BIN1').innerHTML = dec2bin(randnum,8);
+	document.getElementById('DEC1').innerText = randnum;
+	document.getElementById('HEX1').innerText = randnum.toString(16).toUpperCase();
+
+	randnum = Math.floor((Math.random() * 256));
+	document.getElementById('BIN2').innerHTML = dec2bin(randnum,8);
+	document.getElementById('DEC2').innerText = randnum;
+	document.getElementById('HEX2').innerText = randnum.toString(16).toUpperCase();
+
+	randnum = Math.floor((Math.random() * 256));
+	document.getElementById('BIN3').innerHTML = dec2bin(randnum,8);
+	document.getElementById('DEC3').innerText = randnum;
+	document.getElementById('HEX3').innerText = randnum.toString(16).toUpperCase();
+}
+
+function showAnswers() {
+	document.getElementById('DEC1').style.visibility = 'visible';
+	document.getElementById('HEX1').style.visibility = 'visible';
+	
+	document.getElementById('BIN2').style.visibility = 'visible';
+	document.getElementById('HEX2').style.visibility = 'visible';
+	
+	document.getElementById('BIN3').style.visibility = 'visible';
+	document.getElementById('DEC3').style.visibility = 'visible';
+	
+	document.getElementById('answers').style.display = 'none';
+	document.getElementById('reload').style.display = 'inline';
+}
+
+--></script>
+
+</head>
+<body onLoad="buildTable()">
+<div id="body" class="box pcenter">
+
+<p class="tcenter">Convert the given number into the other indicated bases</p>
+
+
+<table class="pcenter outline">
+  <tr>
+    <td><strong>BIN</strong></th>
+    <td><strong><div id="BIN1"></div></strong></th>
+  </tr>
+  <tr>
+    <td>DEC</td>
+    <td class="tcenter"><div id="DEC1" class="hidden"></div></td>
+  </tr>
+  <tr>
+    <td>HEX</td>
+    <td class="tcenter"><div id="HEX1" class="hidden"></div></td>
+  </tr>
+<tr><td>&nbsp;</td></tr>
+  <tr>
+    <td>BIN</th>
+    <td><div id="BIN2" class="hidden"></div></th>
+  </tr>
+  <tr>
+    <td><strong>DEC</strong></td>
+    <td class="tcenter"><strong><div id="DEC2"></div></strong></td>
+  </tr>
+  <tr>
+    <td>HEX</td>
+    <td class="tcenter"><div id="HEX2" class="hidden"></div></td>
+  </tr>
+<tr><td>&nbsp;</td></tr>
+  <tr>
+    <td>BIN</th>
+    <td><div id="BIN3" class="hidden"></div></th>
+  </tr>
+  <tr>
+    <td>DEC</td>
+    <td class="tcenter"><div id="DEC3" class="hidden"></div></td>
+  </tr>
+  <tr>
+    <td><strong>HEX</strong></td>
+    <td class="tcenter"><strong><div id="HEX3"></div></strong></td>
+   </tr>
+</table>
+
+<p class="tcenter">
+<button id="answers" onclick="showAnswers()">answers</button>
+<button id="reload" onClick="buildTable()" style="display:none">reload</button>
+</p>
+
+</div>
+</body>
+<html>
