@@ -1,147 +1,152 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Conversion Practice</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conversion Practice — CS-140</title>
     <style>
-      .box{
-        width: 70%;
-        background-color: #b0e0e6;
-      }
-
-      .hidden{
-        visibility:hidden
-      }
-
-      .outline {
-        border: 1px solid black;
-      }
-
-      .pcenter {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .tcenter {
-        text-align:center
-      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #fff; color: #222; font: 16px/1.6 Arial, sans-serif; }
+      main { max-width: 768px; margin: auto; padding: 32px 24px; }
+      .department { margin: 0 0 8px; color: #555; font-size: 14px; }
+      h1 { font-size: 30px; line-height: 1.2; margin: 0 0 18px; }
+      h2 { font-size: 20px; line-height: 1.4; margin: 0 0 12px; }
+      p { margin: 0 0 12px; }
+      .exercise { background: #f2f5f7; border-left: 3px solid #155a96; padding: 16px 20px; margin: 20px 0; }
+      table { width: 100%; border-collapse: collapse; }
+      th { text-align: left; font-weight: normal; width: 45%; }
+      th, td { padding: 4px 0; }
+      td { font-family: Consolas, "Courier New", monospace; }
+      .given th, .given td { font-weight: bold; }
+      .hidden { visibility: hidden; }
+      button { font: inherit; background: #155a96; color: #fff; border: 1px solid #155a96; border-radius: 4px; padding: 8px 16px; cursor: pointer; }
+      button:hover { background: #104777; }
+      button:focus-visible { outline: 3px solid #222; outline-offset: 3px; }
+      @media (max-width: 400px) { main { padding: 24px 16px; } .exercise { padding: 12px; } }
+      @media print { main { max-width: none; padding: 0; } button { display: none !important; } }
     </style>
-
-
-    <script type="text/javascript"><!--
-
+    <script>
       function dec2bin(dec,length){
-        var out = "";
-
-        while(length--)
-          out += (dec >> length ) & 1;
-
-        return out;
-      }
-
-      function hideAnswers() {
-        document.getElementById('DEC1').style.visibility = 'hidden';
-        document.getElementById('HEX1').style.visibility = 'hidden';
-
-        document.getElementById('BIN2').style.visibility = 'hidden';
-        document.getElementById('HEX2').style.visibility = 'hidden';
-
-        document.getElementById('BIN3').style.visibility = 'hidden';
-        document.getElementById('DEC3').style.visibility = 'hidden';
-
-        document.getElementById('answers').style.display = 'inline';
-        document.getElementById('reload').style.display = 'none';
-      }
-
-      function buildTable() {
-        hideAnswers();
-
-        randnum = Math.floor((Math.random() * 256));
-        document.getElementById('BIN1').innerHTML = dec2bin(randnum,8);
-        document.getElementById('DEC1').innerText = randnum;
-        document.getElementById('HEX1').innerText = randnum.toString(16).toUpperCase();
-
-        randnum = Math.floor((Math.random() * 256));
-        document.getElementById('BIN2').innerHTML = dec2bin(randnum,8);
-        document.getElementById('DEC2').innerText = randnum;
-        document.getElementById('HEX2').innerText = randnum.toString(16).toUpperCase();
-
-        randnum = Math.floor((Math.random() * 256));
-        document.getElementById('BIN3').innerHTML = dec2bin(randnum,8);
-        document.getElementById('DEC3').innerText = randnum;
-        document.getElementById('HEX3').innerText = randnum.toString(16).toUpperCase();
-      }
-
-      function showAnswers() {
-        document.getElementById('DEC1').style.visibility = 'visible';
-        document.getElementById('HEX1').style.visibility = 'visible';
-
-        document.getElementById('BIN2').style.visibility = 'visible';
-        document.getElementById('HEX2').style.visibility = 'visible';
-
-        document.getElementById('BIN3').style.visibility = 'visible';
-        document.getElementById('DEC3').style.visibility = 'visible';
-
-        document.getElementById('answers').style.display = 'none';
-        document.getElementById('reload').style.display = 'inline';
-      }
-
-    --></script>
-
+              var out = "";
+      
+              while(length--)
+                out += (dec >> length ) & 1;
+      
+              return out;
+            }
+      
+            function hideAnswers() {
+              document.getElementById('DEC1').style.visibility = 'hidden';
+              document.getElementById('HEX1').style.visibility = 'hidden';
+      
+              document.getElementById('BIN2').style.visibility = 'hidden';
+              document.getElementById('HEX2').style.visibility = 'hidden';
+      
+              document.getElementById('BIN3').style.visibility = 'hidden';
+              document.getElementById('DEC3').style.visibility = 'hidden';
+      
+              document.getElementById('answers').style.display = 'inline';
+              document.getElementById('reload').style.display = 'none';
+            }
+      
+            function buildTable() {
+              hideAnswers();
+      
+              var randnum = Math.floor((Math.random() * 256));
+              document.getElementById('BIN1').innerHTML = dec2bin(randnum,8);
+              document.getElementById('DEC1').innerText = randnum;
+              document.getElementById('HEX1').innerText = randnum.toString(16).toUpperCase();
+      
+              var randnum = Math.floor((Math.random() * 256));
+              document.getElementById('BIN2').innerHTML = dec2bin(randnum,8);
+              document.getElementById('DEC2').innerText = randnum;
+              document.getElementById('HEX2').innerText = randnum.toString(16).toUpperCase();
+      
+              var randnum = Math.floor((Math.random() * 256));
+              document.getElementById('BIN3').innerHTML = dec2bin(randnum,8);
+              document.getElementById('DEC3').innerText = randnum;
+              document.getElementById('HEX3').innerText = randnum.toString(16).toUpperCase();
+            }
+      
+            function showAnswers() {
+              document.getElementById('DEC1').style.visibility = 'visible';
+              document.getElementById('HEX1').style.visibility = 'visible';
+      
+              document.getElementById('BIN2').style.visibility = 'visible';
+              document.getElementById('HEX2').style.visibility = 'visible';
+      
+              document.getElementById('BIN3').style.visibility = 'visible';
+              document.getElementById('DEC3').style.visibility = 'visible';
+      
+              document.getElementById('answers').style.display = 'none';
+              document.getElementById('reload').style.display = 'inline';
+            }
+    </script>
   </head>
-  <body onLoad="buildTable()">
-    <div id="body" class="box pcenter">
-      <p class="tcenter">Clackamas Community College · Computer Science CTE · CS-140 Computer Tech Intro</p>
+  <body onload="buildTable()">
+    <main>
+      <p class="department">Clackamas Community College · Computer Science CTE · CS-140 Computer Tech Intro</p>
+      <h1>Conversion Practice</h1>
+      <p>Convert the given number into the other indicated bases.</p>
 
-      <p class="tcenter">Convert the given number into the other indicated bases</p>
+      <section class="exercise">
+        <h2>Binary to decimal and hexadecimal</h2>
+        <table aria-label="Binary to decimal and hexadecimal">
+          <tr class="given">
+            <th scope="row">Binary</th>
+            <td><span id="BIN1"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Decimal</th>
+            <td><span id="DEC1" class="hidden"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Hexadecimal</th>
+            <td><span id="HEX1" class="hidden"></span></td>
+          </tr>
+        </table>
+      </section>
 
+      <section class="exercise">
+        <h2>Decimal to binary and hexadecimal</h2>
+        <table aria-label="Decimal to binary and hexadecimal">
+          <tr>
+            <th scope="row">Binary</th>
+            <td><span id="BIN2" class="hidden"></span></td>
+          </tr>
+          <tr class="given">
+            <th scope="row">Decimal</th>
+            <td><span id="DEC2"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Hexadecimal</th>
+            <td><span id="HEX2" class="hidden"></span></td>
+          </tr>
+        </table>
+      </section>
 
-      <table class="pcenter outline">
-        <tr>
-          <td><strong>BIN</strong></th>
-          <td><strong><div id="BIN1"></div></strong></th>
-        </tr>
-        <tr>
-          <td>DEC</td>
-          <td class="tcenter"><div id="DEC1" class="hidden"></div></td>
-        </tr>
-        <tr>
-          <td>HEX</td>
-          <td class="tcenter"><div id="HEX1" class="hidden"></div></td>
-        </tr>
-        <tr><td>&nbsp;</td></tr>
-        <tr>
-          <td>BIN</th>
-          <td><div id="BIN2" class="hidden"></div></th>
-        </tr>
-        <tr>
-          <td><strong>DEC</strong></td>
-          <td class="tcenter"><strong><div id="DEC2"></div></strong></td>
-        </tr>
-        <tr>
-          <td>HEX</td>
-          <td class="tcenter"><div id="HEX2" class="hidden"></div></td>
-        </tr>
-        <tr><td>&nbsp;</td></tr>
-        <tr>
-          <td>BIN</th>
-          <td><div id="BIN3" class="hidden"></div></th>
-        </tr>
-        <tr>
-          <td>DEC</td>
-          <td class="tcenter"><div id="DEC3" class="hidden"></div></td>
-        </tr>
-        <tr>
-          <td><strong>HEX</strong></td>
-          <td class="tcenter"><strong><div id="HEX3"></div></strong></td>
-        </tr>
-      </table>
+      <section class="exercise">
+        <h2>Hexadecimal to binary and decimal</h2>
+        <table aria-label="Hexadecimal to binary and decimal">
+          <tr>
+            <th scope="row">Binary</th>
+            <td><span id="BIN3" class="hidden"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Decimal</th>
+            <td><span id="DEC3" class="hidden"></span></td>
+          </tr>
+          <tr class="given">
+            <th scope="row">Hexadecimal</th>
+            <td><span id="HEX3"></span></td>
+          </tr>
+        </table>
+      </section>
 
-      <p class="tcenter">
-        <button id="answers" onclick="showAnswers()">answers</button>
-        <button id="reload" onClick="buildTable()" style="display:none">reload</button>
+      <p>
+        <button id="answers" onclick="showAnswers()">Show answers</button>
+        <button id="reload" onclick="buildTable()" style="display: none">New numbers</button>
       </p>
-
-    </div>
+    </main>
   </body>
-<html>
+</html>
